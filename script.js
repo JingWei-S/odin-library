@@ -1,36 +1,57 @@
 // stores papers
 let myLibrary = [];
 
+// the object to get title?
+const title = {
+  location: "Location",
+  name: "name",
+  why: "Reason(s)",
+  year: "Year",
+  stillHate: "Still hate them?",
+};
+
 // paper constructor
-function Paper(title, firstAuthor, venue, year, ifRead) {
-    this.title = title;
-    this.firstAuthor = firstAuthor;
-    this.venue = venue;
-    this.year = year;
-    this.ifRead = ifRead;
+function Hate(location, name, why, year, stillHate) {
+  this.location = location;
+  this.name = name;
+  this.why = why;
+  this.year = year;
+  this.stillHate = stillHate;
 }
 
-const paper1 = new Paper('test1', 'Jing', 'IMWUT', 2021, false);
-const paper2 = new Paper('test2', 'Jing', 'CHI', 2022, false);
-const paper3 = new Paper('test3', 'Jing', 'CSCW', 2022, false);
-myLibrary.push(paper1);
-myLibrary.push(paper2);
-myLibrary.push(paper3);
+const hate1 = new Hate(
+  "Melbourne",
+  "Michael Z.",
+  "Bad participant",
+  2020,
+  false
+);
+const hate2 = new Hate("US", "2AC", "Gave me bad reviews", 2022, true);
+const hate3 = new Hate(
+  "Shenzhen",
+  "Sustech",
+  "Destroyed my mental health",
+  2017,
+  true
+);
+myLibrary.push(hate1);
+myLibrary.push(hate2);
+myLibrary.push(hate3);
 
 // console.log(myLibrary)
 
 // the following function lopps through the myLibrary array and add cards to the page
-const card = document.createElement('div');
+const card = document.createElement("div");
 card.classList.add("paper-display");
-function displayPaperInfo (paper) {
-    for (const prop in paper) {
-        const test = document.createElement("p");
-        test.classList.add(`${prop}`);  // make the property the class so that I can manipulate with css
-        test.textContent = `${prop}: ${paper[prop]}`;
-        card.appendChild(test);
-    }
+function displayPaperInfo(paper) {
+  for (const prop in paper) {
+    const test = document.createElement("p");
+    test.classList.add(`${prop}`); // make the property the class so that I can manipulate with css
+    test.textContent = `${prop}: ${paper[prop]}`;
+    card.appendChild(test);
+  }
 }
-displayPaperInfo(paper1);
+displayPaperInfo(hate1);
 
 // this is the default paper list container
 const container = document.querySelector(".container");
