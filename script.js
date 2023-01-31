@@ -18,3 +18,22 @@ myLibrary.push(paper2);
 myLibrary.push(paper3);
 
 // console.log(myLibrary)
+
+// the following function lopps through the myLibrary array and add cards to the page
+const card = document.createElement('div');
+card.classList.add("paper-display");
+function displayPaperInfo (paper) {
+    for (const prop in paper) {
+        const test = document.createElement("p");
+        test.classList.add(`${prop}`);  // make the property the class so that I can manipulate with css
+        test.textContent = `${prop}: ${paper[prop]}`;
+        card.appendChild(test);
+    }
+}
+displayPaperInfo(paper1);
+
+// this is the default paper list container
+const container = document.querySelector(".container");
+// const container = document.querySelector(".container");
+container.appendChild(card);
+// console.log(container)
