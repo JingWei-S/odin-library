@@ -44,13 +44,14 @@ body {
     font-size: 18px;
     font-weight: bold;
     padding-left: 1em;
+    padding-right: 1em;
     box-sizing: border-box;
     box-shadow: 1px 1px 3px var(--spotify-gray);
 }
 
 .container {
     display: grid;
-    grid-template-columns: repeat(4, minmax(300px, 1fr));
+    grid-template-columns: repeat(4, minmax(350px, 1fr));
     gap: 15px;
     margin: 15px;
 }

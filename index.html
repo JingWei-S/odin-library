@@ -18,19 +18,19 @@
         <form action="#">
           <div>
             <label for="hateName">Their Initials</label>
-            <input type="text" name="hateName" id="hateName" />
+            <input type="text" name="hateName" id="hateName" minlength="5" maxlength="30" required/>
           </div>
           <div>
             <label for="hateTime">When did it happen?</label>
-            <input type="date" id="hateTime" name="hateTime">
+            <input type="date" id="hateTime" name="hateTime" minlength="5" maxlength="30" required>
           </div>
           <div>
             <label for="hateLocation">Where did it happen?</label>
-            <input type="text" name="hateLocation" id="hateLocation" />
+            <input type="text" name="hateLocation" id="hateLocation" minlength="5" maxlength="30" required/>
           </div>
           <div>
             <label for="hateReason">Why you hate them?</label>
-            <input type="text" name="hateReason" id="hateReason" maxlength="30"/>
+            <input type="text" name="hateReason" id="hateReason" maxlength="30" required/>
           </div>
           <fieldset>
             <p>Still hating them?</p>

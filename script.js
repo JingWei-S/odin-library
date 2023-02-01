@@ -7,7 +7,7 @@ const title = {
   time: "Time",
   name: "Name",
   why: "Reason(s)",
-  stillHate: "Still hate them?",
+  stillHate: "Still hating",
 };
 
 // set the date picker to be today
@@ -65,7 +65,12 @@ function displayPaperInfo(paper) {
   for (const prop in paper) {
     const hateCard = document.createElement("p");
     hateCard.classList.add(`${prop}`); // make the property the class so that I can manipulate with css
-    hateCard.textContent = `${title[prop]}: ${paper[prop]}`;
+    if (prop === 'stillHate') {
+        hateCard.textContent = paper[prop] === true? `${title[prop]}: 🤬` : `${title[prop]}: 🥱`;
+    } else {
+        hateCard.textContent = `${title[prop]}: ${paper[prop]}`;
+    }
+    
     card.appendChild(hateCard);
   }
   console.log(card);
