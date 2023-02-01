@@ -4,9 +4,9 @@ let myLibrary = [];
 // the object to get title?
 const title = {
   location: "Location",
+  time: "Time",
   name: "Name",
   why: "Reason(s)",
-  time: "Time",
   stillHate: "Still hate them?",
 };
 
@@ -61,7 +61,7 @@ for (const hate of myLibrary) {
 // the following function lopps through the myLibrary array and add cards to the page
 function displayPaperInfo(paper) {
   const card = document.createElement("div");
-  card.classList.add("paper-display"); // we can decorate cards
+  card.classList.add("enemy-display"); // we can decorate cards
   for (const prop in paper) {
     const hateCard = document.createElement("p");
     hateCard.classList.add(`${prop}`); // make the property the class so that I can manipulate with css
