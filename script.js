@@ -4,18 +4,27 @@ let myLibrary = [];
 // the object to get title?
 const title = {
   location: "Location",
-  name: "name",
+  name: "Name",
   why: "Reason(s)",
-  year: "Year",
+  time: "Time",
   stillHate: "Still hate them?",
 };
 
+// set the date picker to be today
+const todayDate = document.getElementById("hateTime");
+
+const currentDate = new Date();
+const year = currentDate.getFullYear();
+const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+const day = currentDate.getDate().toString().padStart(2, '0');
+todayDate.value = `${year}-${month}-${day}`;
+
 // paper constructor
-function Hate(location, name, why, year, stillHate) {
+function Hate(location, name, why, time, stillHate) {
   this.location = location;
   this.name = name;
   this.why = why;
-  this.year = year;
+  this.time = time;
   this.stillHate = stillHate;
 }
 
@@ -37,12 +46,17 @@ const hate3 = new Hate(
 myLibrary.push(hate1);
 myLibrary.push(hate2);
 myLibrary.push(hate3);
-addBookToLibrary();
 
-//--------- above is the initiation --------//
 
 // this is the default paper list container
 const container = document.querySelector(".container");
+// add book to library
+for (const hate of myLibrary) {
+    // console.log(myLibrary);
+    displayPaperInfo(hate);
+}
+
+//--------- above is the initiation --------//
 
 // the following function lopps through the myLibrary array and add cards to the page
 function displayPaperInfo(paper) {
@@ -57,11 +71,36 @@ function displayPaperInfo(paper) {
   console.log(card);
   container.appendChild(card);
 }
-function addBookToLibrary() {
-  for (const hate of myLibrary) {
-    // console.log(myLibrary);
-    displayPaperInfo(hate);
-  }
-}
 
+
+
+
+//below is the add a new enemy button
+const addButton = document.querySelector("#add");
+addButton.addEventListener("click", () => {
+    // console.log('test');
+    document.querySelector(".form-section").style.display = "flex";
+});
+
+// remove the new enemy form
+const cancelButton = document.querySelector("#cancel");
+cancelButton.addEventListener("click", () => {
+    document.querySelector(".form-section").style.display = "none";
+});
+
+// submit button
+const formInfo = document.querySelector('form');
+formInfo.addEventListener("submit", (e) => {
+    e.preventDefault();  // prevent submission
+    const location = formInfo.elements.hateLocation.value;
+    const name = formInfo.elements.hateName.value;
+    const time = formInfo.elements.hateTime.value;
+    const why = formInfo.elements.hateReason.value;
+    const stillHate = formInfo.elements.hating.value === "yes" ? true : false;
+    const newHate = new Hate(location, name, why, time, stillHate);
+    myLibrary.push(newHate);
+    displayPaperInfo(newHate);
+    // remove the for,
+    document.querySelector(".form-section").style.display = "none";
+});
 

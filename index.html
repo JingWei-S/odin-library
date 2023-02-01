@@ -7,40 +7,48 @@
   </head>
   <body>
     <div class="container"></div>
-    <button>Add a new enemy</button>
-    <div class="form-container">
-      <form action="#">
-        <div>
-          <label for="hateLocation">Where did it happen?</label>
-          <input type="text" name="hateLocation" id="hateLocation" />
-        </div>
-        <div>
-          <label for="hateName">Their Initials</label>
-          <input type="text" name="hateName" id="hateName" />
-        </div>
-        <div>
+    <button id="add">Add a new enemy</button>
+    <section class="form-section">
+      <div class="form-container">
+        <form action="#">
+          <div>
+            <label for="hateName">Their Initials</label>
+            <input type="text" name="hateName" id="hateName" />
+          </div>
+          <div>
+            <label for="hateTime">When did it happen?</label>
+            <input type="date" id="hateTime" name="hateTime">
+          </div>
+          <div>
+            <label for="hateLocation">Where did it happen?</label>
+            <input type="text" name="hateLocation" id="hateLocation" />
+          </div>
+          <div>
             <label for="hateReason">Why you hate them?</label>
             <input type="text" name="hateReason" id="hateReason" />
-        </div>
-        <div>
-            <label for="hateYear"></label>
-            <input type="text" name="hateYear" id="hateYear" />
-        </div>
-        <fieldset>
+          </div>
+          <fieldset>
             <p>Still hating them?</p>
             <div>
-                <input type="radio" name="hating" id="hating" value="yes" checked>
-                <label for="hating">Hell yeah!!</label>
-                <input type="radio" name="hating" id="notHating" value="no">
-                <label for="notHating">Not any more</label>
+              <input
+                type="radio"
+                name="hating"
+                id="hating"
+                value="yes"
+                checked
+              />
+              <label for="hating">Hell yeah!!</label>
+              <input type="radio" name="hating" id="notHating" value="no" />
+              <label for="notHating">Not any more</label>
             </div>
-        </fieldset>
-        <div class="button-group">
-            <input type="Submit" value="Submit">
-            <input type="button" value="Cancel">
-        </div>
-      </form>
-    </div>
+          </fieldset>
+          <div class="button-group">
+            <input type="Submit" value="Submit" />
+            <input type="button" value="Cancel" id="cancel"/>
+          </div>
+        </form>
+      </div>
+    </section>
   </body>
   <script src="script.js"></script>
 </html>
