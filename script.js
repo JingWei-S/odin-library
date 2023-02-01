@@ -37,6 +37,7 @@ const hate3 = new Hate(
 myLibrary.push(hate1);
 myLibrary.push(hate2);
 myLibrary.push(hate3);
+addBookToLibrary();
 
 //--------- above is the initiation --------//
 
@@ -58,9 +59,9 @@ function displayPaperInfo(paper) {
 }
 function addBookToLibrary() {
   for (const hate of myLibrary) {
-    console.log(myLibrary);
+    // console.log(myLibrary);
     displayPaperInfo(hate);
   }
 }
 
-addBookToLibrary();
+
