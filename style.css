@@ -10,10 +10,12 @@ body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     padding: 0;
     margin: 0;
-    min-height: 100vh;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     background: linear-gradient(to left, #2c084c 0%, var(--spotify-black) 100%);
+    overflow: scroll;
 }
 
 .header {
@@ -75,9 +77,10 @@ body {
 }
 
 .container {
+    width: 100vw;
     display: grid;
     grid-template-columns: repeat(3, minmax(300px, 1fr));
-    gap: 30px;
+    gap: 40px;
     /* margin: 15px; */
     padding: 2em 10em;
 }

@@ -82,16 +82,25 @@ function displayPaperInfo(paper) {
   container.appendChild(card);
 }
 
-// get over button event
-const getOver = document.querySelectorAll(".change-status");
-getOver.forEach(overBtn => overBtn.addEventListener("click", () => {
-    const display = overBtn.closest('.enemy-display');
-    // console.log(display.querySelector('p:nth-child(5)'));
-    const changeP = display.querySelector('p:nth-child(5)');
-    changeP.textContent = `Hating? 🥱`;
-}))
-
-
+// get over button event - use event delegation
+function addChangeButton() {
+    const enemyCards = document.querySelectorAll(".enemy-display");
+    enemyCards.forEach(enemyCard => {
+        enemyCard.addEventListener("click", function(event) {
+            if (event.target.tagName === 'BUTTON') {
+                const changeP = enemyCard.querySelector('p:nth-child(5)');
+                changeP.textContent = `Hating? 🥱`;
+            }
+        })
+    });
+}
+addChangeButton();
+// getOver.forEach(overBtn => overBtn.addEventListener("click", () => {
+//     const display = overBtn.closest('.enemy-display');
+//     // console.log(display.querySelector('p:nth-child(5)'));
+//     const changeP = display.querySelector('p:nth-child(5)');
+//     changeP.textContent = `Hating? 🥱`;
+// })) 
 
 
 //below is the add a new enemy button
@@ -121,6 +130,7 @@ formInfo.addEventListener("submit", (e) => {
     displayPaperInfo(newHate);
     // remove the for
     document.querySelector(".form-section").style.display = "none";
-    // console.log(formInfo.parentElement)
+    addChangeButton();
 });
+
 
