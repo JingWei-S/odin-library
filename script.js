@@ -33,7 +33,7 @@ const hate1 = new Hate(
   "Michael Z.",
   "Bad participant",
   2020,
-  false
+  true
 );
 const hate2 = new Hate("US", "2AC", "Gave me bad reviews", 2022, true);
 const hate3 = new Hate(
@@ -66,16 +66,30 @@ function displayPaperInfo(paper) {
     const hateCard = document.createElement("p");
     hateCard.classList.add(`${prop}`); // make the property the class so that I can manipulate with css
     if (prop === 'stillHate') {
-        hateCard.textContent = paper[prop] === true? `${title[prop]}: 🤬` : `${title[prop]}: 🥱`;
+        hateCard.textContent = paper[prop] === true? `Hating? 🤬` : `Hating? 🥱`;
     } else {
         hateCard.textContent = `${title[prop]}: ${paper[prop]}`;
     }
     
     card.appendChild(hateCard);
   }
-  console.log(card);
+//   add a button to change the status of enemy
+    const btn = document.createElement("button");
+    btn.classList.add("change-status");
+    btn.textContent = "Get over";
+    card.appendChild(btn);
+//   console.log(card);
   container.appendChild(card);
 }
+
+// get over button event
+const getOver = document.querySelectorAll(".change-status");
+getOver.forEach(overBtn => overBtn.addEventListener("click", () => {
+    const display = overBtn.closest('.enemy-display');
+    // console.log(display.querySelector('p:nth-child(5)'));
+    const changeP = display.querySelector('p:nth-child(5)');
+    changeP.textContent = `Hating? 🥱`;
+}))
 
 
 
@@ -105,7 +119,8 @@ formInfo.addEventListener("submit", (e) => {
     const newHate = new Hate(location, name, why, time, stillHate);
     myLibrary.push(newHate);
     displayPaperInfo(newHate);
-    // remove the for,
+    // remove the for
     document.querySelector(".form-section").style.display = "none";
+    // console.log(formInfo.parentElement)
 });
 

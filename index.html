@@ -18,19 +18,19 @@
         <form action="#">
           <div>
             <label for="hateName">Their Initials</label>
-            <input type="text" name="hateName" id="hateName" minlength="5" maxlength="30" required/>
+            <input type="text" name="hateName" id="hateName" minlength="2" maxlength="30" placeholder = "John D." required/>
           </div>
           <div>
             <label for="hateTime">When did it happen?</label>
-            <input type="date" id="hateTime" name="hateTime" minlength="5" maxlength="30" required>
+            <input type="date" id="hateTime" name="hateTime" required>
           </div>
           <div>
             <label for="hateLocation">Where did it happen?</label>
-            <input type="text" name="hateLocation" id="hateLocation" minlength="5" maxlength="30" required/>
+            <input type="text" name="hateLocation" id="hateLocation" minlength="5" maxlength="30" placeholder="Earth" required/>
           </div>
           <div>
             <label for="hateReason">Why you hate them?</label>
-            <input type="text" name="hateReason" id="hateReason" maxlength="30" required/>
+            <input type="text" name="hateReason" id="hateReason" maxlength="30" placeholder="Steal my yoghurt" required/>
           </div>
           <fieldset>
             <p>Still hating them?</p>
@@ -42,9 +42,9 @@
                 value="yes"
                 checked
               />
-              <label for="hating">Hell yeah!!</label>
+              <label for="hating">🤬</label>
               <input type="radio" name="hating" id="notHating" value="no" />
-              <label for="notHating">Not any more</label>
+              <label for="notHating">🥱</label>
             </div>
           </fieldset>
           <div class="button-group">
