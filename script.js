@@ -19,13 +19,23 @@ const month = (currentDate.getMonth() + 1).toString().padStart(2, "0");
 const day = currentDate.getDate().toString().padStart(2, "0");
 todayDate.value = `${year}-${month}-${day}`;
 
-// paper constructor
-function Hate(location, name, why, time, stillHate) {
-  this.location = location;
-  this.name = name;
-  this.why = why;
-  this.time = time;
-  this.stillHate = stillHate;
+// // paper constructor
+// function Hate(location, name, why, time, stillHate) {
+//   this.location = location;
+//   this.name = name;
+//   this.why = why;
+//   this.time = time;
+//   this.stillHate = stillHate;
+// }
+
+class Hate {
+  constructor(location, name, why, time, stillHate) {
+    this.location = location;
+    this.name = name;
+    this.why = why;
+    this.time = time;
+    this.stillHate = stillHate;
+  }
 }
 
 const hate1 = new Hate(
